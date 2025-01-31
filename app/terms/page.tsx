@@ -16,10 +16,10 @@ export default function TermsPage() {
         </CardHeader>
         <CardContent className="prose prose-blue max-w-none">
           <p className="text-gray-600">
-            These Terms and Conditions, along with privacy policy or other terms ("Terms") constitute a binding
-            agreement by and between Ticketer, ("Website Owner" or "we" or "us" or "our") and you ("you" or
-            "your") and relate to your use of our website, goods (as applicable) or services (as applicable)
-            (collectively, "Services").
+            These Terms and Conditions, along with privacy policy or other terms (&quot;Terms&quot;) constitute a
+            binding agreement by and between HEMANSHU YOGESH PATIL, (&quot;Website Owner&quot; or &quot;we&quot; or
+            &quot;us&quot; or &quot;our&quot;) and you (&quot;you&quot; or &quot;your&quot;) and relate to your use of
+            our website, goods (as applicable) or services (as applicable) (collectively, &quot;Services&quot;).
           </p>
 
           <div className="mt-6 space-y-4">

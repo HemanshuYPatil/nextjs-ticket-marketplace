@@ -1,8 +1,7 @@
 "use client"
 
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { AlertCircle, Clock, RefreshCcw } from "lucide-react"
+import { AlertCircle, Clock, RefreshCcw } from 'lucide-react'
 
 export default function CancellationPage() {
   return (
@@ -18,8 +17,7 @@ export default function CancellationPage() {
         </CardHeader>
         <CardContent className="space-y-6">
           <p className="text-gray-600">
-            HEMANSHU YOGESH PATIL believes in helping its customers as far as possible, and has therefore a liberal
-            cancellation policy.
+            HEMANSHU YOGESH PATIL believes in helping its customers as far as possible, and has therefore a liberal cancellation policy.
           </p>
 
           <div className="grid gap-6 md:grid-cols-2">
@@ -39,7 +37,7 @@ export default function CancellationPage() {
                 <h3 className="font-medium">Refund Process</h3>
               </div>
               <p className="text-sm text-gray-600">
-                In case of any Refunds approved, it'll take 1-2 Days for the refund to be processed.
+                In case of any Refunds approved, it&apos;ll take 1-2 Days for the refund to be processed.
               </p>
             </div>
           </div>
@@ -62,4 +60,3 @@ export default function CancellationPage() {
     </div>
   )
 }
-
