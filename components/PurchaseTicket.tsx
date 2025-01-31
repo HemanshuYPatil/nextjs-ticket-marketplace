@@ -9,6 +9,7 @@ import { api } from "@/convex/_generated/api";
 import { useQuery } from "convex/react";
 import ReleaseTicket from "./ReleaseTicket";
 import { Ticket } from "lucide-react";
+import upiqr from "upiqr";
 
 export default function PurchaseTicket({ eventId }: { eventId: Id<"events"> }) {
   const router = useRouter();
@@ -55,14 +56,15 @@ export default function PurchaseTicket({ eventId }: { eventId: Id<"events"> }) {
     if (!user) return;
 
     try {
-      setIsLoading(true);
-      const { sessionUrl } = await createStripeCheckoutSession({
-        eventId,
-      });
+      
 
-      if (sessionUrl) {
-        router.push(sessionUrl);
-      }
+      upiqr({
+        payeeVPA: "7058026892@axl",
+        payeeName: "Hemanshu Patil"
+      })
+      .then(({ qr }) => {
+           
+      })
     } catch (error) {
       console.error("Error creating checkout session:", error);
     } finally {

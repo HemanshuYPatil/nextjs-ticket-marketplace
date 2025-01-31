@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      { hostname: "exciting-caterpillar-231.convex.cloud", protocol: "https" },
+      { hostname: "rapid-hound-650.convex.cloud", protocol: "https" },
     ],
   },
 };
