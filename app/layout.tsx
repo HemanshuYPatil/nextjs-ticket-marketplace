@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import SyncUserWithConvex from "@/components/SyncUserWithConvex";
 import { Toaster } from "@/components/ui/toaster";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -40,6 +41,41 @@ export default function RootLayout({
             {children}
 
             <Toaster />
+
+            <footer className="border-t bg-white  h-20">
+              <div className="container mx-auto px-4 py-6">
+                <div className="flex flex-col md:flex-row justify-between items-center">
+                  <p className="text-sm text-gray-600 mb-4 md:mb-0">
+                    © {new Date().getFullYear()} Ticketer. All
+                    rights reserved.
+                  </p>
+                  <nav>
+                    <ul className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+                      
+                      <li>
+                        <Link href="/contact" className="hover:text-blue-600">
+                          Contact
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/terms" className="hover:text-blue-600">
+                          Terms & Conditions
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/cancellation"
+                          className="hover:text-blue-600"
+                        >
+                          Cancellation Policy
+                        </Link>
+                      </li>
+                     
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </footer>
           </ClerkProvider>
         </ConvexClientProvider>
       </body>
