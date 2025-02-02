@@ -3,8 +3,8 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const { customer_email, customer_name, customer_phone, amount } = await req.json();
 
-  const clientId = process.env.CASHFREE_CLIENT_ID;
-  const clientSecret = process.env.CASHFREE_CLIENT_SECRET;
+  const clientId = "TEST102403622d3a4c5f69ba8ecadd7426304201";
+  const clientSecret = "cfsk_ma_test_aab52085772190d09a6257a9c63b051c_c3937c1d";
 
   if (!clientId || !clientSecret) {
     return NextResponse.json(
