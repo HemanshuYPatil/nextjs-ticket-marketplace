@@ -83,7 +83,7 @@ export default function EventPage() {
                       <Ticket className="w-5 h-5 mr-2 text-blue-600" />
                       <span className="text-sm font-medium">Price</span>
                     </div>
-                    <p className="text-gray-900">£{event.price.toFixed(2)}</p>
+                    <p className="text-gray-900">₹{event.price.toFixed(2)}</p>
                   </div>
 
                   <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
@@ -96,6 +96,15 @@ export default function EventPage() {
                       / {availability.totalTickets} left
                     </p>
                   </div>
+                </div>
+                <div className="bg-blue-50 border border-blue-100 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-blue-900 mb-2">
+                    Contact Details (Coordinator)
+                    </h3>
+                  <ul className="space-y-2 text-blue-700">
+                    <li>• {event.coordinatorName}</li>
+                    <li>• +91-{event.coordinatorNumber} </li>
+                  </ul>
                 </div>
 
                 {/* Additional Event Information */}

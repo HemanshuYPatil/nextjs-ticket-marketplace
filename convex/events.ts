@@ -47,6 +47,8 @@ export const create = mutation({
     price: v.number(),
     totalTickets: v.number(),
     userId: v.string(),
+    coordinatorName: v.string(),
+    coordinatorNumber: v.string(),
   },
   handler: async (ctx, args) => {
     const eventId = await ctx.db.insert("events", {
@@ -54,6 +56,8 @@ export const create = mutation({
       description: args.description,
       location: args.location,
       eventDate: args.eventDate,
+      coordinatorName: args.coordinatorName,
+      coordinatorNumber: args.coordinatorNumber,
       price: args.price,
       totalTickets: args.totalTickets,
       userId: args.userId,

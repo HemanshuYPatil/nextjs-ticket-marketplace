@@ -1,6 +1,5 @@
 "use client";
 
-import { createStripeCheckoutSession } from "@/app/actions/createStripeCheckoutSession";
 import { Id } from "@/convex/_generated/dataModel";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -53,22 +52,36 @@ export default function PurchaseTicket({ eventId }: { eventId: Id<"events"> }) {
 
   const handlePurchase = async () => {
     if (!user) return;
-
+  
     try {
       setIsLoading(true);
-      const { sessionUrl } = await createStripeCheckoutSession({
-        eventId,
+      
+      const response = await fetch("/api/cashfree", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          customer_email: 'hemanshuypatil@gmail.com',
+          customer_name: "Hemanshu Patil",
+          customer_phone: "7058026892",
+          amount: 1, 
+        }),
       });
-
-      if (sessionUrl) {
-        router.push(sessionUrl);
+  
+      const data = await response.json();
+  
+      if (data.link_url) {
+        router.push(data.link_url);
+      } else {
+        console.error("Error creating payment link:", data);
       }
     } catch (error) {
-      console.error("Error creating checkout session:", error);
+      console.error("Error creating payment link:", error);
     } finally {
       setIsLoading(false);
     }
   };
+  
+  
 
   if (!user || !queuePosition || queuePosition.status !== "offered") {
     return null;

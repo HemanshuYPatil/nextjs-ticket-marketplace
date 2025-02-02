@@ -11,6 +11,8 @@ export default defineSchema({
     totalTickets: v.number(),
     userId: v.string(),
     imageStorageId: v.optional(v.id("_storage")),
+    coordinatorName: v.string(),
+    coordinatorNumber: v.string(),
     is_cancelled: v.optional(v.boolean()),
   }),
   tickets: defineTable({

@@ -37,6 +37,10 @@ const formSchema = z.object({
     ),
   price: z.number().min(0, "Price must be 0 or greater"),
   totalTickets: z.number().min(1, "Must have at least 1 ticket"),
+  coordinatorName: z.string().min(1, "Co-Ordinator Name is required"),
+  coordinatorNumber: z
+    .string()
+    .min(1, "Co-Ordinator Contact Number is required"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -50,6 +54,8 @@ interface InitialEventData {
   price: number;
   totalTickets: number;
   imageStorageId?: Id<"_storage">;
+  coordinatorName: string;
+  coordinatorNumber: string;
 }
 
 interface EventFormProps {
@@ -85,6 +91,9 @@ export default function EventForm({ mode, initialData }: EventFormProps) {
       eventDate: initialData ? new Date(initialData.eventDate) : new Date(),
       price: initialData?.price ?? 0,
       totalTickets: initialData?.totalTickets ?? 1,
+      coordinatorName: initialData?.coordinatorName ?? "",
+      coordinatorNumber: initialData?.coordinatorNumber ?? "",
+
     },
   });
 
@@ -245,6 +254,34 @@ export default function EventForm({ mode, initialData }: EventFormProps) {
 
           <FormField
             control={form.control}
+            name="coordinatorName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Co-Ordinator Name</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="coordinatorNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Co-Ordinator Number</FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
             name="eventDate"
             render={({ field }) => (
               <FormItem>
@@ -279,7 +316,7 @@ export default function EventForm({ mode, initialData }: EventFormProps) {
                 <FormControl>
                   <div className="relative">
                     <span className="absolute left-2 top-1/2 -translate-y-1/2">
-                      £
+                    ₹
                     </span>
                     <Input
                       type="number"
